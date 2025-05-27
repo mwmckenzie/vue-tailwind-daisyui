@@ -1,0 +1,60 @@
+﻿vite.config.js:
+
+    import { defineConfig } from 'vite'
+    import vue from '@vitejs/plugin-vue'
+    import tailwindcss from '@tailwindcss/vite'
+    
+    // https://vite.dev/config/
+    export default defineConfig({
+      plugins: [vue(),
+      tailwindcss()],
+    })
+
+
+main.js:
+
+    import { createApp } from 'vue'
+    import './style.css'
+    import App from './App.vue'
+    
+    createApp(App).mount('#app')
+    
+package.json:
+
+    {
+      "name": "vue-tailwind-daisyui",
+      "private": true,
+      "version": "0.0.0",
+      "type": "module",
+      "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+      },
+      "dependencies": {
+        "@tailwindcss/vite": "^4.1.7",
+        "vue": "^3.5.13"
+      },
+      "devDependencies": {
+        "@vitejs/plugin-vue": "^5.2.3",
+        "autoprefixer": "^10.4.21",
+        "daisyui": "^5.0.35",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.1.7",
+        "vite": "^6.3.5"
+      }
+    }
+    
+index.html:
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="/src/style.css" rel="stylesheet">
+    <title>Vite + Vue</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
