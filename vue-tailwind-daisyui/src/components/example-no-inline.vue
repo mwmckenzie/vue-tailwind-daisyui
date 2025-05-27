@@ -1,6 +1,4 @@
 ﻿<script setup>
-import {ref} from "vue";
-import LabeledInputWithSvg from "./base/labeledInputWithSvg.vue";
 import LabeledInputSlotted from "./base/labeledInputSlotted.vue";
 import InjectectableHtmlSvg from "./svgs/injectectableHtmlSvg.vue";
 
@@ -10,6 +8,7 @@ import { ButtonModel } from "../js/models.js";
 import CardSlotted from "./base/card/cardSlotted.vue";
 import CardBodySlotted from "./base/card/cardBodySlotted.vue";
 import CardElemHeader from "./base/card/cardElemHeader.vue";
+import BadgeSlotted from "./base/badge/badgeSlotted.vue";
 
 const appConfigStore = useAppConfigStore();
 
@@ -119,6 +118,11 @@ function callback(event) {
 
                   <!-- CARD ELEMENT | BADGE HOLDER -->
                   <div>
+                    
+                    <BadgeSlotted>
+                      Bags
+                      <InjectectableHtmlSvg class="size-2" viewBox="0 0 16 16" fill="currentColor" stroke-width="0" :svg-html-data="Constants.SVG_ICONS_HTML.CROSS"/>
+                    </BadgeSlotted>
 
                     <!-- ELEMENT | BADGE -->
                     <span class="badge badge-soft">
@@ -134,12 +138,13 @@ function callback(event) {
                     <!-- ELEMENT | BADGE -->
                     <span class="badge badge-soft">
                       Bags 
-                      <svg class="size-3"
+                      <InjectectableHtmlSvg class="size-3" viewBox="0 0 16 16" fill="currentColor" stroke-width="0" :svg-html-data="Constants.SVG_ICONS_HTML.CROSS"/>
+                      <!-- svg class="size-3"
                            fill="currentColor"
                            viewBox="0 0 16 16"
                            xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"></path>
-                      </svg>
+                      </svg -->
                     </span>
                   </div>
 
