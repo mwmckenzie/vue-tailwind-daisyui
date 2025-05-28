@@ -15,7 +15,7 @@ const SVG_ICON_TYPES = Object.freeze({
 
 const SVG_FILL_TYPES = Object.freeze({
     NONE: "none",
-    
+    CURRENT_COLOR: "currentColor",
 })
 
 const SVG_STROKE_TYPES = Object.freeze({
@@ -71,6 +71,10 @@ const THEMES = Object.freeze({
     ROUNDEDLILAC: 'roundedLilac'
 });
 
+const INJECTABLES = Object.freeze({
+    APP_EVENT_BUS: 'appEventBus',
+});
+
 export default {
     inputTypes, 
     SVG_ICON_TYPES,
@@ -80,4 +84,5 @@ export default {
     SVG_STROKE_LINECAP,
     SVG_ICONS_HTML,
     THEMES,
+    INJECTABLES
 };

@@ -1,19 +1,27 @@
 ﻿<script setup>
-import LabeledInputSlotted from "./base/labeledInputSlotted.vue";
+import LabeledInputSlotted from "./base/input/labeledInputSlotted.vue";
 import InjectectableHtmlSvg from "./svgs/injectectableHtmlSvg.vue";
-
-import Constants from "../js/constants.js";
-import { useAppConfigStore } from "../stores/appConfigStore.js";
-import { ButtonModel } from "../js/models.js";
 import CardSlotted from "./base/card/cardSlotted.vue";
 import CardBodySlotted from "./base/card/cardBodySlotted.vue";
 import CardElemHeader from "./base/card/cardElemHeader.vue";
 import BadgeSlotted from "./base/badge/badgeSlotted.vue";
 
-const appConfigStore = useAppConfigStore();
+import Constants from "../js/constants.js";
+import { ButtonModel } from "../js/models.js";
+import RowBufferedSlotted from "./base/row/rowBufferedSlotted.vue";
+import TabsContainerSmSlotted from "./base/tabs/tabsContainerSmSlotted.vue";
+import {inject} from "vue";
+import {eventTypes} from "../js/eventBus.js";
 
-const toggleTheme = (appConfigStore) => {
-  appConfigStore.setNextTheme();
+const props = defineProps({
+  currentTheme: String
+})
+
+const appEventBus = inject(Constants.INJECTABLES.APP_EVENT_BUS)
+
+
+const handleToggleThemeClick = () => {
+  appEventBus.emit(eventTypes.THEME_SWITCH_REQUESTED);
 }
 
 const buttonComponentBlocks = new ButtonModel("component-blocks", "previewtabs", "Component Blocks", 
@@ -34,21 +42,21 @@ function callback(event) {
 
 <template>
   
-  <div :data-theme="appConfigStore.theme">
+  <div :data-theme="currentTheme">
     
-    <div class="flex flex-row justify-left items-center space-x-4 px-8 py-2">
+    <RowBufferedSlotted class="space-x-2 justify-start py-2">
       <button class="btn btn-neutral"
-              @click="toggleTheme(appConfigStore)">Swap Theme
+              @click="handleToggleThemeClick">Swap Theme
       </button>
-      <div>{{ appConfigStore.theme }}</div>
-    </div>
+      <div>{{ currentTheme }}</div>
+    </RowBufferedSlotted>
     
     <div class="max-md:hidden">
       <div class="text-base-content pt-6 transition-colors duration-500 bg-base-200">
-        <div class="flex items-center justify-between gap-4 px-8 ps-10">
+        
+        <RowBufferedSlotted>
           <h2 class="font-title text-lg md:max-lg:hidden">Components Demo</h2>
-          <div class="tabs tabs-box tabs-sm bg-base-300 inline-flex">
-            
+          <TabsContainerSmSlotted>
             <LabeledInputSlotted :button-model="buttonComponentBlocks" @button-clicked="callback">
               <InjectectableHtmlSvg :svg-html-data="buttonComponentBlocks.svgHtmlData" />
             </LabeledInputSlotted>
@@ -58,7 +66,6 @@ function callback(event) {
             <LabeledInputSlotted :button-model="buttonColorPalette" @button-clicked="callback">
               <InjectectableHtmlSvg :svg-html-data="buttonColorPalette.svgHtmlData" />
             </LabeledInputSlotted>
-            
             <!--
             <label class="tab" title="Components Demo">
               <input aria-label="Components Demo" name="previewtabs" type="radio" value="Components Demo">
@@ -73,8 +80,8 @@ function callback(event) {
               <ColorPaletteSvg/>
             </label>
             -->
-          </div>
-        </div>
+          </TabsContainerSmSlotted>
+        </RowBufferedSlotted>
         
         <div class="px-8 py-6">
           
@@ -121,7 +128,19 @@ function callback(event) {
                     
                     <BadgeSlotted>
                       Bags
-                      <InjectectableHtmlSvg class="size-2" viewBox="0 0 16 16" fill="currentColor" stroke-width="0" :svg-html-data="Constants.SVG_ICONS_HTML.CROSS"/>
+                      <InjectectableHtmlSvg class="size-2" 
+                                            viewBox="0 0 16 16" 
+                                            :fill="Constants.SVG_FILL_TYPES.CURRENT_COLOR" 
+                                            stroke-width="0" 
+                                            :svg-html-data="Constants.SVG_ICONS_HTML.CROSS"/>
+                    </BadgeSlotted>
+                    <BadgeSlotted>
+                      Shoes
+                      <InjectectableHtmlSvg class="size-2"
+                                            viewBox="0 0 16 16"
+                                            :fill="Constants.SVG_FILL_TYPES.CURRENT_COLOR"
+                                            stroke-width="0"
+                                            :svg-html-data="Constants.SVG_ICONS_HTML.CROSS"/>
                     </BadgeSlotted>
 
                     <!-- ELEMENT | BADGE -->
@@ -134,18 +153,7 @@ function callback(event) {
                         <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"></path>
                       </svg>
                     </span>
-
-                    <!-- ELEMENT | BADGE -->
-                    <span class="badge badge-soft">
-                      Bags 
-                      <InjectectableHtmlSvg class="size-3" viewBox="0 0 16 16" fill="currentColor" stroke-width="0" :svg-html-data="Constants.SVG_ICONS_HTML.CROSS"/>
-                      <!-- svg class="size-3"
-                           fill="currentColor"
-                           viewBox="0 0 16 16"
-                           xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"></path>
-                      </svg -->
-                    </span>
+                    
                   </div>
 
                   <!-- CARD ELEMENT | ROW HOLDER -->

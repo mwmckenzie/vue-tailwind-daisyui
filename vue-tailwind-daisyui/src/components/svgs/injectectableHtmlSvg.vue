@@ -7,7 +7,7 @@ const props = defineProps({
     default: null
   },
   strokeWidth: {
-    type: Number,
+    type: String,
     default: 2
   },
   fill: {
