@@ -1,5 +1,10 @@
 ﻿<script setup>
-import constants from "../../js/constants.js";
+import {
+  SVG_FILL_TYPES,
+  SVG_STROKE_LINECAP,
+  SVG_STROKE_LINEJOIN,
+  SVG_STROKE_TYPES
+} from "../../js/constants.js";
 
 const props = defineProps({
   svgHtmlData: {
@@ -8,23 +13,23 @@ const props = defineProps({
   },
   strokeWidth: {
     type: String,
-    default: 2
+    default: "2"
   },
   fill: {
     type: String,
-    default: constants.SVG_FILL_TYPES.NONE
+    default: SVG_FILL_TYPES.NONE
   },
   stroke: {
     type: String,
-    default: constants.SVG_STROKE_TYPES.CURRENT_COLOR
+    default: SVG_STROKE_TYPES.CURRENT_COLOR
   },
   strokeLinejoin: {
     type: String,
-    default: constants.SVG_STROKE_LINEJOIN.ROUND
+    default: SVG_STROKE_LINEJOIN.ROUND
   },
   strokeLinecap: {
     type: String,
-    default: constants.SVG_STROKE_LINECAP.ROUND
+    default: SVG_STROKE_LINECAP.ROUND
   },
 })
 </script>

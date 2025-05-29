@@ -1,5 +1,5 @@
 ﻿<script setup>
-import constants from "../../js/constants.js";
+import {SVG_FILL_TYPES, SVG_STROKE_TYPES} from "../../js/constants.js";
 
 const props = defineProps({
   svgDataComponent: {
@@ -12,11 +12,11 @@ const props = defineProps({
   },
   fill: {
     type: String,
-    default: constants.SVG_FILL_TYPES.NONE
+    default: SVG_FILL_TYPES.NONE
   },
   stroke: {
     type: String,
-    default: constants.SVG_STROKE_TYPES.CURRENT_COLOR
+    default: SVG_STROKE_TYPES.CURRENT_COLOR
   },
   size: String
 })

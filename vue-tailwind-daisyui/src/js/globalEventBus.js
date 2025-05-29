@@ -76,9 +76,9 @@ export class EventBus {
  * - Emitting events to notify all subscribed listeners.
  * - Removing event listeners when they are no longer needed.
  */
-const eventBus = new EventBus();
+const globalEventBus = new EventBus();
 
-export default eventBus;
+export default globalEventBus;
 
 
 export const eventTypes = {

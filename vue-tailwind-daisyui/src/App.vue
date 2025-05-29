@@ -1,17 +1,17 @@
 <script setup>
-import Navbar from "./components/navbar.vue";
-import ExampleNoInline from "./components/example-no-inline.vue";
-import constants from "./js/constants.js";
-import eventBus from './js/eventBus.js';
-import { eventTypes } from './js/eventBus.js';
+import ExampleNavbar from "./components/example-navbar.vue";
+import ExampleContainer from "./components/example-container.vue";
+import { INJECTABLES } from "./js/constants.js";
+import { EventBus } from './js/globalEventBus.js';
+import { eventTypes } from './js/globalEventBus.js';
 import { useAppConfigStore } from "./stores/appConfigStore.js";
-import {onMounted, provide, ref} from "vue";
+import { onMounted, provide, ref } from "vue";
+
 
 const appConfigStore = useAppConfigStore();
+const appEventBus = new EventBus();
 
-const appEventBus = eventBus;
-
-provide(constants.INJECTABLES.APP_EVENT_BUS, appEventBus);
+provide(INJECTABLES.APP_EVENT_BUS, appEventBus);
 
 onMounted(() => {
   appEventBus.on(eventTypes.THEME_SWITCH_REQUESTED,
@@ -19,13 +19,11 @@ onMounted(() => {
   );
 });
 
-
-
 </script>
 
 <template>
-  <navbar/>
-  <example-no-inline :current-theme="appConfigStore.theme"/>
+  <example-navbar/>
+  <example-container :current-theme="appConfigStore.theme"/>
 </template>
 
 

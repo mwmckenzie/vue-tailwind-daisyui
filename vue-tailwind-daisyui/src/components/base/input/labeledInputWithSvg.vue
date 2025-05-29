@@ -1,6 +1,5 @@
 ﻿<script setup>
 
-import constants from "../../../js/constants.js";
 import InjectectableHtmlSvg from "../../svgs/injectectableHtmlSvg.vue";
 import { ButtonModel } from "../../../js/models.js";
 

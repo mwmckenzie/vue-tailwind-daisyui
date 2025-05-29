@@ -1,5 +1,5 @@
 ﻿
-function getNextValue(obj, currentKey) {
+export function getNextValue(obj, currentKey) {
     const values = Object.values(obj);
     console.log(values);
     const index = values.indexOf(currentKey);
@@ -11,5 +11,3 @@ function getNextValue(obj, currentKey) {
     const nextIndex = (index + 1) % values.length;
     return values[nextIndex];
 }
-
-export {getNextValue};

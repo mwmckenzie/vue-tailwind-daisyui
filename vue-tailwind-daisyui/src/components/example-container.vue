@@ -6,18 +6,20 @@ import CardBodySlotted from "./base/card/cardBodySlotted.vue";
 import CardElemHeader from "./base/card/cardElemHeader.vue";
 import BadgeSlotted from "./base/badge/badgeSlotted.vue";
 
-import Constants from "../js/constants.js";
+import {INJECTABLES, INPUT_TYPES, SVG_FILL_TYPES, SVG_ICONS_HTML} from "../js/constants.js";
 import { ButtonModel } from "../js/models.js";
 import RowBufferedSlotted from "./base/row/rowBufferedSlotted.vue";
 import TabsContainerSmSlotted from "./base/tabs/tabsContainerSmSlotted.vue";
 import {inject} from "vue";
-import {eventTypes} from "../js/eventBus.js";
+import {eventTypes} from "../js/globalEventBus.js";
+import ResponsiveGridColsSlotted from "./base/container/responsiveGridColsSlotted.vue";
+import ContainerColumnSlotted from "./base/container/containerColumnSlotted.vue";
 
 const props = defineProps({
   currentTheme: String
 })
 
-const appEventBus = inject(Constants.INJECTABLES.APP_EVENT_BUS)
+const appEventBus = inject(INJECTABLES.APP_EVENT_BUS)
 
 
 const handleToggleThemeClick = () => {
@@ -25,13 +27,13 @@ const handleToggleThemeClick = () => {
 }
 
 const buttonComponentBlocks = new ButtonModel("component-blocks", "previewtabs", "Component Blocks", 
-    Constants.SVG_ICONS_HTML.COMPONENT_BLOCKS, Constants.inputTypes.RADIO);
+    SVG_ICONS_HTML.COMPONENT_BLOCKS, INPUT_TYPES.RADIO);
 
 const buttonKeyValueList = new ButtonModel("component-variants", "previewtabs", "Component Variants",
-    Constants.SVG_ICONS_HTML.KEY_VALUE_LIST, Constants.inputTypes.RADIO);
+    SVG_ICONS_HTML.KEY_VALUE_LIST, INPUT_TYPES.RADIO);
 
 const buttonColorPalette = new ButtonModel("color-palette", "previewtabs", "Color Palette",
-    Constants.SVG_ICONS_HTML.COLOR_PALETTE, Constants.inputTypes.RADIO);
+    SVG_ICONS_HTML.COLOR_PALETTE, INPUT_TYPES.RADIO);
 
 function callback(event) {
   console.log(event);
@@ -51,7 +53,9 @@ function callback(event) {
       <div>{{ currentTheme }}</div>
     </RowBufferedSlotted>
     
-    <div class="max-md:hidden">
+    <!-- div class="max-xs:hidden" -->
+    
+    <div>  
       <div class="text-base-content pt-6 transition-colors duration-500 bg-base-200">
         
         <RowBufferedSlotted>
@@ -82,12 +86,15 @@ function callback(event) {
             -->
           </TabsContainerSmSlotted>
         </RowBufferedSlotted>
-        
+
+        <!-- CONTAINER | PADDED X Y -->
         <div class="px-8 py-6">
-          
-          <div class="text-base-content mx-auto grid gap-6 pb-20 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 [&amp;_.carbon-responsive-wrap]:flex-nowrap! [&amp;_.carbon-responsive-wrap]:text-[11px]! [&amp;_:is(div,button)]:[transition:background-color_0ms,border-color_100ms,box-shadow_300ms,border-radius_500ms_ease-out] [&amp;>*]:mb-6">
+
+          <!-- CONTAINER | GRID | DYNAMIC | COLUMN COUNT BY SCREEN SIZE -->
+          <ResponsiveGridColsSlotted>
             
-            <div class="flex flex-col gap-4">
+            <!-- CONTAINER | COLUMN -->
+            <ContainerColumnSlotted>
               
               <CardSlotted>
                 <!-- CARD BODY |  -->
@@ -96,7 +103,7 @@ function callback(event) {
                   <CardElemHeader>
                     <span class="flex items-center gap-2 font-semibold">
                       <injectectable-html-svg class="size-5 opacity-40" 
-                                              :svg-html-data="Constants.SVG_ICONS_HTML.PIE_CHART"
+                                              :svg-html-data="SVG_ICONS_HTML.PIE_CHART"
                                               stroke-width="1.5"/>
                       <!--
                       <svg
@@ -130,17 +137,17 @@ function callback(event) {
                       Bags
                       <InjectectableHtmlSvg class="size-2" 
                                             viewBox="0 0 16 16" 
-                                            :fill="Constants.SVG_FILL_TYPES.CURRENT_COLOR" 
+                                            :fill="SVG_FILL_TYPES.CURRENT_COLOR" 
                                             stroke-width="0" 
-                                            :svg-html-data="Constants.SVG_ICONS_HTML.CROSS"/>
+                                            :svg-html-data="SVG_ICONS_HTML.CROSS"/>
                     </BadgeSlotted>
                     <BadgeSlotted>
                       Shoes
                       <InjectectableHtmlSvg class="size-2"
                                             viewBox="0 0 16 16"
-                                            :fill="Constants.SVG_FILL_TYPES.CURRENT_COLOR"
+                                            :fill="SVG_FILL_TYPES.CURRENT_COLOR"
                                             stroke-width="0"
-                                            :svg-html-data="Constants.SVG_ICONS_HTML.CROSS"/>
+                                            :svg-html-data="SVG_ICONS_HTML.CROSS"/>
                     </BadgeSlotted>
 
                     <!-- ELEMENT | BADGE -->
@@ -613,8 +620,10 @@ function callback(event) {
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="flex flex-col gap-4">
+            </ContainerColumnSlotted>
+
+            <!-- CONTAINER | COLUMN -->
+            <ContainerColumnSlotted>
               <div class="card bg-base-100 card-border border-base-300 card-sm">
                 <div class="card-body gap-4">
                   <div class="*:bg-base-content mt-4 flex h-24 items-end gap-2 *:w-full *:rounded-sm">
@@ -931,9 +940,11 @@ function callback(event) {
                   </li>
                 </ul>
               </div>
-              
-            </div>
-            <div class="flex flex-col gap-4">
+
+            </ContainerColumnSlotted>
+
+            <!-- CONTAINER | COLUMN -->
+            <ContainerColumnSlotted>
               <div class="card bg-base-100 card-border border-base-300 card-sm overflow-hidden">
                 <div class="card-body my-2">
                   <div class="flex items-center justify-around">
@@ -1342,8 +1353,13 @@ function callback(event) {
                   <button class="btn btn-accent">Buy Now</button>
                 </div>
               </div>
-            </div>
-          </div><!----> <!----> <!----></div>
+            </ContainerColumnSlotted>
+          
+          </ResponsiveGridColsSlotted>
+          
+          <!----> <!----> <!---->
+        </div>
+        
       </div><!----></div>
   </div>
 </template>
