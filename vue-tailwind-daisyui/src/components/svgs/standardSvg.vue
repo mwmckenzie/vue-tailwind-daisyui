@@ -1,5 +1,5 @@
 ﻿<script setup>
-import {SVG_FILL_TYPES, SVG_STROKE_TYPES} from "../../js/constants.js";
+import {SVG_FILL_TYPES, SVG_STROKE_TYPES} from "@/js/constants.js";
 
 const props = defineProps({
   svgDataComponent: {

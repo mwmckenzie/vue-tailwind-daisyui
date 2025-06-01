@@ -1,7 +1,7 @@
 ﻿import {defineStore} from 'pinia'
 import {ref} from 'vue'
-import { THEMES } from "../js/constants.js";
-import {getNextValue} from "../js/utils.js";
+import { THEMES } from "@/js/constants.js";
+import {getNextValue} from "@/js/utils.js";
 
 
 export const useAppConfigStore 

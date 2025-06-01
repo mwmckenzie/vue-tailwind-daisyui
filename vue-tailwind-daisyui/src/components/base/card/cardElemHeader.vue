@@ -1,5 +1,5 @@
 ﻿<script setup>
-import {ButtonModel} from "../../../js/models.js";
+import {ButtonModel} from "@/js/models.js";
 
 const props = defineProps({
   buttonModel: {

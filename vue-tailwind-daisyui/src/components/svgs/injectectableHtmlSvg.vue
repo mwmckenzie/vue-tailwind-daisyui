@@ -4,7 +4,7 @@ import {
   SVG_STROKE_LINECAP,
   SVG_STROKE_LINEJOIN,
   SVG_STROKE_TYPES
-} from "../../js/constants.js";
+} from "@/js/constants.js";
 
 const props = defineProps({
   svgHtmlData: {

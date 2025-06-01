@@ -1,7 +1,7 @@
 ﻿<script setup>
 
-import InjectectableHtmlSvg from "../../svgs/injectectableHtmlSvg.vue";
-import { ButtonModel } from "../../../js/models.js";
+import InjectectableHtmlSvg from "@/components/svgs/injectectableHtmlSvg.vue";
+import { ButtonModel } from "@/js/models.js";
 
 
 const props = defineProps({

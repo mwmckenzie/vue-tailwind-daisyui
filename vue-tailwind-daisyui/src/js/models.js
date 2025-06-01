@@ -1,4 +1,4 @@
-﻿import {INPUT_TYPES, SVG_ICONS_HTML} from "./constants.js";
+﻿import {INPUT_TYPES, SVG_ICONS_HTML} from "@/js/constants.js";
 import { v4 as uuidv4 } from 'uuid';
 
 export class ButtonModel {

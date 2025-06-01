@@ -1,12 +1,13 @@
 <script setup>
-import ExampleNavbar from "./components/example-navbar.vue";
-import ExampleContainer from "./components/example-container.vue";
-import { INJECTABLES } from "./js/constants.js";
-import { EventBus } from './js/globalEventBus.js';
-import { eventTypes } from './js/globalEventBus.js';
-import { useAppConfigStore } from "./stores/appConfigStore.js";
+import ExampleNavbar from "@/components/example-navbar.vue";
+import ExampleContainer from "@/components/example-container.vue";
+import { INJECTABLES } from "@/js/constants.js";
+import { EventBus } from '@/js/globalEventBus.js';
+import { eventTypes } from '@/js/globalEventBus.js';
+import { useAppConfigStore } from "@/stores/appConfigStore.js";
 import { onMounted, provide, ref } from "vue";
 
+console.log(import.meta.env.VITE_API_URL);
 
 const appConfigStore = useAppConfigStore();
 const appEventBus = new EventBus();

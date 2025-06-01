@@ -1,8 +1,36 @@
-﻿
-export const INPUT_TYPES = Object.freeze( {
+﻿export const INPUT_TYPES = Object.freeze({
     RADIO: 'radio',
     CHECKBOX: 'checkbox',
 })
+
+export const SVG_OPTIONS = Object.freeze({
+        FILL_TYPES: {
+            NONE: "none",
+            CURRENT_COLOR: "currentColor",
+        },
+        ICON_TYPES: {
+            NONE: "none",
+            COLOR_PALETTE: "ColorPaletteSvg",
+            COMPONENT_BLOCKS: "ComponentBlocksSvg",
+            KEY_VALUE_LIST: "KeyValueListSvg"
+        },
+        STROKE_TYPES: {
+            NONE: "none",
+            CURRENT_COLOR: "currentColor",
+        },
+        STROKE_LINEJOIN: {
+            NONE: "none",
+            ROUND: "round",
+            BEVEL: "bevel",
+            MITER: "miter",
+        },
+        STROKE_LINECAP: {
+            NONE: "none",
+            ROUND: "round",
+            SQUARE: "square",
+        },
+    }
+)
 
 export const SVG_ICON_TYPES = Object.freeze({
     NONE: "none",
@@ -69,4 +97,103 @@ export const THEMES = Object.freeze({
 
 export const INJECTABLES = Object.freeze({
     APP_EVENT_BUS: 'appEventBus',
+});
+
+
+export const aliases = Object.freeze({
+    "alert": [
+        "success",
+        "info",
+        "warning",
+        "error",
+        "danger",
+        "feedback",
+        "notification"
+    ],
+    "authentication": [
+        "login",
+        "register",
+        "account",
+        "signin",
+        "password",
+        "email"
+    ],
+    "card": [
+        "image",
+        "socials",
+        "product",
+        "stars"
+    ],
+    "cookies": [
+        "browser",
+        "web",
+        "internet",
+        "http",
+        "session"
+    ],
+    "dropdown": [
+        "list",
+        "select"
+    ],
+    "faq": [
+        "questions",
+        "q&a",
+        "support",
+        "help",
+        "assistance"
+    ],
+    "footer": [
+        "bottom",
+        "section",
+        "bar"
+    ],
+    "hero": [
+        "welcome",
+        "section",
+        "home",
+        "page"
+    ],
+    "input": [
+        "text",
+        "data",
+        "typing",
+        "form"
+    ],
+    "modal": [
+        "popup",
+        "dialog",
+        "overlay",
+        "window"
+    ],
+    "navbar": [
+        "section",
+        "menu",
+        "header",
+        "bar"
+    ],
+    "pricing": [
+        "money",
+        "costing",
+        "fee",
+        "charge"
+    ],
+    "sidebar": [
+        "bar",
+        "column",
+        "menu",
+        "section"
+    ],
+    "subscribe": [
+        "register",
+        "signup",
+        "follow",
+        "email",
+        "update"
+    ],
+    "team": [
+        "group",
+        "company",
+        "squad",
+        "employees"
+    ]
 });
