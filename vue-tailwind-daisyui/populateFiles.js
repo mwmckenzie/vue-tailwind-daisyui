@@ -1,13 +1,18 @@
 ﻿// populateFiles.js
 // -------------------------
 // Node.js script to read "output.json" and write each "path" => "contents" back to disk.
-// Usage: `node populateFiles.js` (run from the same folder where output.json lives).
+// Usage: `node populateFiles.js` (run from the same folder where textExtractOutput.json lives).
 // -------------------------
 
-import fs from 'fs';
-import path from 'path';
 
-const OUTPUT_FILENAME = 'output.json';
+const fs = require('fs').promises;
+const path = require('path');
+
+// Use imports below if you receive error(s) from require statements above
+// import fs from 'fs';
+// import path from 'path';
+
+const OUTPUT_FILENAME = 'textExtractOutput.json';
 
 (async () => {
     try {

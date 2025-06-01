@@ -2,16 +2,12 @@
 .env.development
 .env.production
 .gitignore
-.vscode
-export
 extractText.js
 index.html
 jsconfig.json
-output.json
 package-lock.json
 package.json
 populateFiles.js
 public
-README.md
 src
 vite.config.js

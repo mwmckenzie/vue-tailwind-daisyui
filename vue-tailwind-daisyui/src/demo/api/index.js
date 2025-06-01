@@ -14,7 +14,7 @@
  * settings across API calls.
  */
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || "https://your‐api.example.com/api",
+    baseURL: import.meta.env.VITE_API_URL,
     headers: {
         "Content-Type": "application/json",
     },
@@ -28,11 +28,6 @@ api.interceptors.request.use((config) => {
     }
     return config;
 });
-
-export const apiRoutes = {
-    getCategories: () => "/categories",
-    getTopicsForCategory: (categoryId) => `/categories/${categoryId}/topics`,
-};
 
 
 

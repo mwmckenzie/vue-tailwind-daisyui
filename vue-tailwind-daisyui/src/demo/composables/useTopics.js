@@ -1,17 +1,19 @@
 ﻿import { useApiFetch } from "./useApiFetch";
-import { apiRoutes } from "../api";
+import {apiClients} from "@/demo/api/clients.js";
 
 /**
- * Fetches and manages the state of topics associated with a specific category.
+ * Fetches topics for a given category using an API client. This hook is designed to debounce requests
+ * and waits for a valid `categoryIdRef` before fetching.
  *
- * @param {Object} categoryIdRef - A reference to the ID of the category for which topics are being fetched.
+ * @param {Ref} categoryIdRef - A reference to the category identifier. The API fetch will trigger once
+ *                              this reference has a valid value.
  * @return {Object} An object containing the following properties:
- * - topics: The list of topics fetched from the API.
- * - loading: A boolean indicating whether the data is currently being loaded.
- * - error: An error object if an error occurred during the fetch.
- * - refetch: A function to manually trigger a refetch of the data.
+ *                  - topics: The fetched topics data.
+ *                  - loading: A boolean indicating the loading state of the fetch operation.
+ *                  - error: Any error encountered during the fetch operation.
+ *                  - refetch: A function to manually trigger a refetch.
  */
-export function useTopics(categoryIdRef) {
+export function useApiFetchTopics(categoryIdRef) {
     const {
         data: topics,
         loading,
@@ -19,8 +21,9 @@ export function useTopics(categoryIdRef) {
         refetch,
     } = useApiFetch({
         sourceRef: categoryIdRef,
-        routeFn: apiRoutes.getTopicsForCategory,
+        apiFn: (id) => apiClients.getTopicsForCategory(id),
         debounceMs: 300,
+        immediate: false, // only fetch after categoryIdRef has a value
     });
 
     return {

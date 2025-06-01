@@ -1,7 +1,7 @@
 ﻿// generateFilelist.js
 // -------------------------
-// Reads all files/folders in the current directory (except itself and filelist.txt)
-// and writes their names (relative paths) into filelist.txt — one entry per line.
+// Reads all files/folders in the current directory (except itself and textExtractInclude.txt)
+// and writes their names (relative paths) into textExtractInclude.txt — one entry per line.
 // -------------------------
 
 import fs from 'fs';
@@ -10,7 +10,7 @@ import path from 'path';
 (async () => {
     try {
         const rootDir = process.cwd();
-        const listFilename = 'filelist.txt';
+        const listFilename = 'textExtractInclude.txt';
         const scriptFullPath = process.argv[1];
         const scriptName = path.basename(scriptFullPath);
 
