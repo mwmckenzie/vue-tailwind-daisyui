@@ -8,12 +8,6 @@ export const SVG_OPTIONS = Object.freeze({
             NONE: "none",
             CURRENT_COLOR: "currentColor",
         },
-        ICON_TYPES: {
-            NONE: "none",
-            COLOR_PALETTE: "ColorPaletteSvg",
-            COMPONENT_BLOCKS: "ComponentBlocksSvg",
-            KEY_VALUE_LIST: "KeyValueListSvg"
-        },
         STROKE_TYPES: {
             NONE: "none",
             CURRENT_COLOR: "currentColor",
@@ -29,38 +23,19 @@ export const SVG_OPTIONS = Object.freeze({
             ROUND: "round",
             SQUARE: "square",
         },
+        ICON_TYPES: {
+            NONE: "none",
+            COLOR_PALETTE: "ColorPaletteSvg",
+            COMPONENT_BLOCKS: "ComponentBlocksSvg",
+            KEY_VALUE_LIST: "KeyValueListSvg"
+        },
     }
 )
 
-export const SVG_ICON_TYPES = Object.freeze({
-    NONE: "none",
-    COLOR_PALETTE: "ColorPaletteSvg",
-    COMPONENT_BLOCKS: "ComponentBlocksSvg",
-    KEY_VALUE_LIST: "KeyValueListSvg"
-});
 
-export const SVG_FILL_TYPES = Object.freeze({
-    NONE: "none",
-    CURRENT_COLOR: "currentColor",
-});
 
-export const SVG_STROKE_TYPES = Object.freeze({
-    NONE: "none",
-    CURRENT_COLOR: "currentColor",
-});
 
-export const SVG_STROKE_LINEJOIN = Object.freeze({
-    NONE: "none",
-    ROUND: "round",
-    BEVEL: "bevel",
-    MITER: "miter",
-});
 
-export const SVG_STROKE_LINECAP = Object.freeze({
-    NONE: "none",
-    ROUND: "round",
-    SQUARE: "square",
-});
 
 export const SVG_ICONS_HTML = Object.freeze({
     NONE: "",

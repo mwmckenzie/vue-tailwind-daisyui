@@ -1,10 +1,5 @@
 ﻿<script setup>
-import {
-  SVG_FILL_TYPES,
-  SVG_STROKE_LINECAP,
-  SVG_STROKE_LINEJOIN,
-  SVG_STROKE_TYPES
-} from "@/js/constants.js";
+import { SVG_OPTIONS } from "@/js/constants.js";
 
 const props = defineProps({
   svgHtmlData: {
@@ -17,19 +12,19 @@ const props = defineProps({
   },
   fill: {
     type: String,
-    default: SVG_FILL_TYPES.NONE
+    default: SVG_OPTIONS.FILL_TYPES.NONE
   },
   stroke: {
     type: String,
-    default: SVG_STROKE_TYPES.CURRENT_COLOR
+    default: SVG_OPTIONS.STROKE_TYPES.CURRENT_COLOR
   },
   strokeLinejoin: {
     type: String,
-    default: SVG_STROKE_LINEJOIN.ROUND
+    default: SVG_OPTIONS.STROKE_LINEJOIN.ROUND
   },
   strokeLinecap: {
     type: String,
-    default: SVG_STROKE_LINECAP.ROUND
+    default: SVG_OPTIONS.STROKE_LINECAP.ROUND
   },
 })
 </script>

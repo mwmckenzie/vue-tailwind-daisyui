@@ -20,3 +20,22 @@ export class ButtonModel {
     svgHtmlData;
     inputType;
 }
+
+export class CheckboxModel {
+
+    constructor(name, groupName = null, label = "Checkbox", checked=false) {
+        this.id = uuidv4();
+        this.name = name;
+        this.groupName = groupName;
+        this.label = label;
+        this.inputType = INPUT_TYPES.CHECKBOX;
+        this.checked = checked;
+    }
+
+    id;
+    name;
+    groupName;
+    label;
+    inputType;
+    checked;
+}
