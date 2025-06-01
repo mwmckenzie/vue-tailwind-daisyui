@@ -128,19 +128,15 @@ const onDeleteCategory = async (id) => {
 
     <!-- Category List -->
     <ul v-else class="space-y-3">
-      <li
-          v-for="cat in categories"
-          :key="cat.id"
-      >
-        <div class="card bg-base-200 shadow-sm flex justify-between items-center p-3 rounded-lg">
-          <span class="font-medium">{{ cat.name }}</span>
-          <button
-              class="btn btn-error btn-sm"
-              @click="onDeleteCategory(cat.id)"
-          >
-            Delete
-          </button>
-        </div>
+      <li v-for="cat in categories" :key="cat.id">
+        
+        <RowBufferedSlotted class="bg-base-200 shadow-sm flex justify-between items-center p-3 rounded-lg">
+            <span class="font-medium">{{ cat.name }}</span>
+            <button class="btn btn-error btn-sm" @click="onDeleteCategory(cat.id)">
+              Delete
+            </button>
+        </RowBufferedSlotted>
+        
       </li>
     </ul>
 
