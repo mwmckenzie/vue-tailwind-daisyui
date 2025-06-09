@@ -9,27 +9,18 @@ import RowBufferedSlotted from "./base/row/rowBufferedSlotted.vue";
 import TabsContainerSmSlotted from "./base/tabs/tabsContainerSmSlotted.vue";
 import ResponsiveGridColsSlotted from "./base/container/responsiveGridColsSlotted.vue";
 import ContainerColumnSlotted from "./base/container/containerColumnSlotted.vue";
-import DataThemeSlotted from "@/components/base/container/dataThemeSlotted.vue";
-import ButtonSlotted from "@/components/base/input/buttonSlotted.vue";
 import PageBkgdTransitionSlotted from "@/components/base/container/pageBkgdTransitionSlotted.vue";
 import PageContainerPaddedSlotted from "@/components/base/container/pageContainerPaddedSlotted.vue";
 import LabeledCheckbox from "@/components/base/input/labeledCheckbox.vue";
 
-import {inject} from "vue";
-import {INJECTABLES, INPUT_TYPES, SVG_ICONS_HTML, SVG_OPTIONS} from "../js/constants.js";
+import {INPUT_TYPES, slotTypes, SVG_ICONS_HTML, SVG_OPTIONS} from "../js/constants.js";
 import {ButtonModel, CheckboxModel} from "../js/models.js";
-import {eventTypes} from "../js/globalEventBus.js";
+
 
 const props = defineProps({
   currentTheme: String
 })
 
-const appEventBus = inject(INJECTABLES.APP_EVENT_BUS)
-
-
-const handleToggleThemeClick = () => {
-  appEventBus.emit(eventTypes.THEME_SWITCH_REQUESTED);
-}
 
 const buttonComponentBlocks = new ButtonModel("component-blocks", "previewtabs", "Component Blocks",
     SVG_ICONS_HTML.COMPONENT_BLOCKS, INPUT_TYPES.RADIO);
@@ -40,7 +31,6 @@ const buttonKeyValueList = new ButtonModel("component-variants", "previewtabs", 
 const buttonColorPalette = new ButtonModel("color-palette", "previewtabs", "Color Palette",
     SVG_ICONS_HTML.COLOR_PALETTE, INPUT_TYPES.RADIO);
 
-const cycleThemeButton = new ButtonModel("cycle-theme", "cycle-theme", "Cycle Theme");
 
 const checkboxModel = new CheckboxModel("checkbox-model", "checkbox-model", "Checkbox Model");
 
@@ -57,17 +47,7 @@ function callback(event) {
 
 <template>
 
-  <DataThemeSlotted :current-theme="currentTheme">
-
-    <RowBufferedSlotted class="space-x-2 justify-start py-2">
-      <ButtonSlotted class="btn-outline btn-primary"
-                     :button-model="cycleThemeButton"
-                     @button-clicked="handleToggleThemeClick">
-        {{ cycleThemeButton.label }}
-      </ButtonSlotted>
-      <div>{{ currentTheme }}</div>
-    </RowBufferedSlotted>
-
+  
 
     <PageBkgdTransitionSlotted>
 
@@ -114,39 +94,21 @@ function callback(event) {
 
             <!-- CARD |  -->
             <CardSlotted>
+              
               <!-- CARD BODY |  -->
-              <CardBodySlotted>
-                <!-- CARD ELEMENT | HEADER -->
-                <CardElemHeader>
-                    <span class="flex items-center gap-2 font-semibold">
+
+              <!-- CARD ELEMENT | HEADER -->
+              <template #header>
+                <span class="flex items-center gap-2 font-semibold">
                       <injectectable-html-svg class="size-5 opacity-40"
                                               :svg-html-data="SVG_ICONS_HTML.PIE_CHART"
                                               stroke-width="1.5"/>
-                      <!--
-                      <svg
-                          class="size-5 opacity-40"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg">
-                      <path
-                          d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"
-                          stroke-linecap="round"
-                          stroke-linejoin="round">
-                      </path>
-                      <path
-                          d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"
-                          stroke-linecap="round"
-                          stroke-linejoin="round">
-                      </path>
-                    </svg>
-                    -->
                       Preview
                     </span>
-                  <span class="link text-xs">more</span>
-                </CardElemHeader>
-
+                <span class="link text-xs">more</span>
+              </template>
+              
+              
                 <!-- CARD ELEMENT | BADGE HOLDER -->
                 <div>
 
@@ -165,7 +127,7 @@ function callback(event) {
                     Shoes
                     <InjectectableHtmlSvg class="size-2"
                                           viewBox="0 0 16 16"
-                                          :fill="SVG_FILL_TYPES.CURRENT_COLOR"
+                                          :fill="SVG_OPTIONS.FILL_TYPES.CURRENT_COLOR"
                                           stroke-width="0"
                                           :svg-html-data="SVG_ICONS_HTML.CROSS"/>
                   </BadgeSlotted>
@@ -219,7 +181,37 @@ function callback(event) {
                     <span class="badge badge-xs badge-neutral font-mono">4</span>
                   </div>
                 </div>
-              </CardBodySlotted>
+
+              <!-- CARD ELEMENT | FOOTER -->
+              <template #footer>
+                <div class="bg-base-300">
+                  <div class="flex items-center gap-2 p-4">
+                    <div class="grow">
+                      <div class="text-sm font-medium">Team Sync Meeting</div>
+                      <div class="text-xs opacity-60">Weekly product review with design and development teams</div>
+                    </div>
+                    <div class="shrink-0">
+                      <span class="badge badge-sm badge-neutral">1h</span>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+
+              <!-- CARD ELEMENT | FOOTER OUTER -->
+              <template #footer-outer>
+                <div class="bg-base-300">
+                  <div class="flex items-center gap-2 p-4">
+                    <div class="grow">
+                      <div class="text-sm font-medium">Team Sync Meeting</div>
+                      <div class="text-xs opacity-60">Weekly product review with design and development teams</div>
+                    </div>
+                    <div class="shrink-0">
+                      <span class="badge badge-sm badge-neutral">1h</span>
+                    </div>
+                  </div>
+                </div>
+              </template>
             </CardSlotted>
 
             <CardSlotted>
@@ -1374,7 +1366,7 @@ function callback(event) {
       </PageContainerPaddedSlotted>
     </PageBkgdTransitionSlotted>
 
-  </DataThemeSlotted>
+  
 </template>
 
 <style scoped>

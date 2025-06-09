@@ -1,13 +1,14 @@
 ﻿<script setup>
 
+const props = defineProps({
+  msg: String,
+});
+
 </script>
 
 <script>
 export default {
-  name: "navbar",
-  props: {
-    msg: String
-  }
+  name: "navbar"
 }
 </script>
 
@@ -21,9 +22,9 @@ export default {
         <ul
             tabindex="0"
             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-          <li><a>Homepage</a></li>
-          <li><a>Portfolio</a></li>
-          <li><a>About</a></li>
+          <li><RouterLink to="/">Go to Home</RouterLink></li>
+          <li><RouterLink to="/about">Category Editor</RouterLink></li>
+          <li><RouterLink to="/responsiveColumnView">Responsive Columns</RouterLink></li>
         </ul>
       </div>
     </div>

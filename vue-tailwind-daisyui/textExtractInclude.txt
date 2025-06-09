@@ -11,3 +11,6 @@ populateFiles.js
 public
 src
 vite.config.js
+generateFilelist.js
+textExtractExclude.txt
+textExtractInclude.txt

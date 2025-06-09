@@ -1,30 +1,11 @@
 ﻿<script setup>
-import ButtonSlotted from "@/components/base/input/buttonSlotted.vue";
 import RowBufferedSlotted from "@/components/base/row/rowBufferedSlotted.vue";
-import {inject} from "vue";
-import {INJECTABLES} from "@/js/constants.js";
-import {eventTypes} from "@/js/globalEventBus.js";
-import {ButtonModel} from "@/js/models.js";
 import PageBkgdTransitionSlotted from "@/components/base/container/pageBkgdTransitionSlotted.vue";
 import PageContainerPaddedSlotted from "@/components/base/container/pageContainerPaddedSlotted.vue";
 import ContainerColumnSlotted from "@/components/base/container/containerColumnSlotted.vue";
 import CardSlotted from "@/components/base/card/cardSlotted.vue";
 import CardElemHeader from "@/components/base/card/cardElemHeader.vue";
 import CardBodySlotted from "@/components/base/card/cardBodySlotted.vue";
-
-const props = defineProps({
-  currentTheme: String
-})
-
-const appEventBus = inject(INJECTABLES.APP_EVENT_BUS)
-
-const handleToggleThemeClick = () => {
-  appEventBus.emit(eventTypes.THEME_SWITCH_REQUESTED);
-}
-
-const cycleThemeButton = new ButtonModel("cycle-theme", "cycle-theme", "Cycle Theme");
-
-
 
 import { ref } from "vue";
 import { useCategories } from "@/demo/composables/useCategories";
@@ -75,19 +56,10 @@ const onDeleteCategory = async (id) => {
     console.error("Failed to delete:", e);
   }
 };
-
 </script>
 
+
 <template>
-  
-  <RowBufferedSlotted class="space-x-2 justify-start py-2">
-    <ButtonSlotted class="btn-outline btn-primary"
-                   :button-model="cycleThemeButton"
-                   @button-clicked="handleToggleThemeClick">
-      {{ cycleThemeButton.label }}
-    </ButtonSlotted>
-    <div>{{ currentTheme }}</div>
-  </RowBufferedSlotted>
   
   <PageBkgdTransitionSlotted>
     <PageContainerPaddedSlotted>
@@ -102,6 +74,107 @@ const onDeleteCategory = async (id) => {
             
           </CardBodySlotted>
         </CardSlotted>
+
+        <ul class="timeline timeline-vertical">
+          <li>
+            <div class="timeline-start">1984</div>
+            <div class="timeline-middle">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-5 w-5"
+              >
+                <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                    clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-end timeline-box">First Macintosh computer</div>
+            <hr />
+          </li>
+          <li>
+            <hr />
+            <div class="timeline-start">1998</div>
+            <div class="timeline-middle">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-5 w-5"
+              >
+                <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                    clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-end timeline-box">iMac</div>
+            <hr />
+          </li>
+          <li>
+            <hr />
+            <div class="timeline-start">2001</div>
+            <div class="timeline-middle">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-5 w-5"
+              >
+                <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                    clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-end timeline-box">iPod</div>
+            <hr />
+          </li>
+          <li>
+            <hr />
+            <div class="timeline-start">2007</div>
+            <div class="timeline-middle">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-5 w-5"
+              >
+                <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                    clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-end timeline-box">iPhone</div>
+            <hr />
+          </li>
+          <li>
+            <hr />
+            <div class="timeline-start">2015</div>
+            <div class="timeline-middle">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-5 w-5"
+              >
+                <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                    clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-end timeline-box">Apple Watch</div>
+          </li>
+        </ul>
         
       </ContainerColumnSlotted>
     </PageContainerPaddedSlotted>
@@ -165,6 +238,107 @@ const onDeleteCategory = async (id) => {
       </div>
     </div>
   </div>
+
+  <ul class="timeline">
+    <li>
+      <div class="timeline-start">1984</div>
+      <div class="timeline-middle">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="h-5 w-5"
+        >
+          <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="timeline-end timeline-box">First Macintosh computer</div>
+      <hr />
+    </li>
+    <li>
+      <hr />
+      <div class="timeline-start">1998</div>
+      <div class="timeline-middle">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="h-5 w-5"
+        >
+          <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="timeline-end timeline-box">iMac</div>
+      <hr />
+    </li>
+    <li>
+      <hr />
+      <div class="timeline-start">2001</div>
+      <div class="timeline-middle">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="h-5 w-5"
+        >
+          <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="timeline-end timeline-box">iPod</div>
+      <hr />
+    </li>
+    <li>
+      <hr />
+      <div class="timeline-start">2007</div>
+      <div class="timeline-middle">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="h-5 w-5"
+        >
+          <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="timeline-end timeline-box">iPhone</div>
+      <hr />
+    </li>
+    <li>
+      <hr />
+      <div class="timeline-start">2015</div>
+      <div class="timeline-middle">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="h-5 w-5"
+        >
+          <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="timeline-end timeline-box">Apple Watch</div>
+    </li>
+  </ul>
   
 </template>
 

@@ -18,7 +18,8 @@ export function useCategories() {
     // A dummy ref to trigger the initial fetch
     const triggerRef = ref(true);
 
-    const { data: categories, loading, error, refetch } = useApiFetch({
+    const { data: categories, loading, error, 
+        refetch } = useApiFetch({
         sourceRef: triggerRef,
         apiFn: () => apiClients.getCategories(),
         immediate: true,

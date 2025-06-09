@@ -74,6 +74,24 @@ export const INJECTABLES = Object.freeze({
     APP_EVENT_BUS: 'appEventBus',
 });
 
+export const eventTypes = {
+    APP_CONFIG_CHANGED: 'appConfigChanged',
+    THEME_CHANGED: 'themeChanged',
+    THEME_SWITCHED: 'themeSwitched',
+    THEME_SWITCH_REQUESTED: 'themeSwitchRequested',
+    MOUSE_MOVE: 'mousemove',
+}
+
+export const slotTypes = {
+    HEADER_OUTER: 'header-outer',
+    HEADER: 'header',
+    BODY: 'body',
+    FOOTER: 'footer',
+    FOOTER_OUTER: 'footer-outer',
+    COLUMN_ONE: 'column-one',
+    COLUMN_TWO: 'column-two',
+    COLUMN_THREE: 'column-three',
+}
 
 export const aliases = Object.freeze({
     "alert": [

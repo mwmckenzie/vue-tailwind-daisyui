@@ -81,9 +81,3 @@ const globalEventBus = new EventBus();
 export default globalEventBus;
 
 
-export const eventTypes = {
-    APP_CONFIG_CHANGED: 'appConfigChanged',
-    THEME_CHANGED: 'themeChanged',
-    THEME_SWITCHED: 'themeSwitched',
-    THEME_SWITCH_REQUESTED: 'themeSwitchRequested',
-}
