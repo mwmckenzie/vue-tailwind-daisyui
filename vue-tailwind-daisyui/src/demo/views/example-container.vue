@@ -1,38 +1,27 @@
 ﻿<script setup>
-import LabeledInputSlotted from "./base/input/labeledInputSlotted.vue";
-import InjectectableHtmlSvg from "./svgs/injectectableHtmlSvg.vue";
-import CardSlotted from "./base/card/cardSlotted.vue";
-import CardBodySlotted from "./base/card/cardBodySlotted.vue";
-import CardElemHeader from "./base/card/cardElemHeader.vue";
-import BadgeSlotted from "./base/badge/badgeSlotted.vue";
-import RowBufferedSlotted from "./base/row/rowBufferedSlotted.vue";
-import TabsContainerSmSlotted from "./base/tabs/tabsContainerSmSlotted.vue";
-import ResponsiveGridColsSlotted from "./base/container/responsiveGridColsSlotted.vue";
-import ContainerColumnSlotted from "./base/container/containerColumnSlotted.vue";
+import LabeledInputSlotted from "../../components/base/input/labeledInputSlotted.vue";
+import InjectectableHtmlSvg from "../../components/svgs/injectectableHtmlSvg.vue";
+import CardSlotted from "../../components/base/card/cardSlotted.vue";
+import CardBodySlotted from "../../components/base/card/cardBodySlotted.vue";
+import CardElemHeader from "../../components/base/card/cardElemHeader.vue";
+import BadgeSlotted from "../../components/base/badge/badgeSlotted.vue";
+import RowBufferedSlotted from "../../components/base/row/rowBufferedSlotted.vue";
+import TabsContainerSmSlotted from "../../components/base/tabs/tabsContainerSmSlotted.vue";
+import ResponsiveGridColsSlotted from "../../components/base/container/responsiveGridColsSlotted.vue";
+import ContainerColumnSlotted from "../../components/base/container/containerColumnSlotted.vue";
 import PageBkgdTransitionSlotted from "@/components/base/container/pageBkgdTransitionSlotted.vue";
 import PageContainerPaddedSlotted from "@/components/base/container/pageContainerPaddedSlotted.vue";
 import LabeledCheckbox from "@/components/base/input/labeledCheckbox.vue";
 
-import {INPUT_TYPES, slotTypes, SVG_ICONS_HTML, SVG_OPTIONS} from "../js/constants.js";
-import {ButtonModel, CheckboxModel} from "../js/models.js";
+import {INPUT_TYPES, slotTypes, SVG_ICONS_HTML, SVG_OPTIONS} from "../../js/constants.js";
+import {ButtonModel, CheckboxModel} from "../../js/models.js";
+import {buttons, checkboxes} from "@/demo/js/constants.js";
 
 
 const props = defineProps({
   currentTheme: String
 })
 
-
-const buttonComponentBlocks = new ButtonModel("component-blocks", "previewtabs", "Component Blocks",
-    SVG_ICONS_HTML.COMPONENT_BLOCKS, INPUT_TYPES.RADIO);
-
-const buttonKeyValueList = new ButtonModel("component-variants", "previewtabs", "Component Variants",
-    SVG_ICONS_HTML.KEY_VALUE_LIST, INPUT_TYPES.RADIO);
-
-const buttonColorPalette = new ButtonModel("color-palette", "previewtabs", "Color Palette",
-    SVG_ICONS_HTML.COLOR_PALETTE, INPUT_TYPES.RADIO);
-
-
-const checkboxModel = new CheckboxModel("checkbox-model", "checkbox-model", "Checkbox Model");
 
 function checkboxCallback(eventModel) {
   console.log("Checkbox Callback => ", eventModel.label, " => ",  eventModel.checked);
@@ -54,34 +43,22 @@ function callback(event) {
       <RowBufferedSlotted>
         <h2 class="font-title text-lg md:max-lg:hidden">Components Demo</h2>
         <TabsContainerSmSlotted>
-          <LabeledInputSlotted :button-model="buttonComponentBlocks"
+          <LabeledInputSlotted class="tab" :button-model="buttons.componentBlocks"
                                @button-clicked="callback">
-            <InjectectableHtmlSvg :svg-html-data="buttonComponentBlocks.svgHtmlData"/>
+            <InjectectableHtmlSvg :svg-html-data="buttons.componentBlocks.svgHtmlData"/>
           </LabeledInputSlotted>
-          <LabeledInputSlotted :button-model="buttonKeyValueList"
+          <LabeledInputSlotted class="tab" :button-model="buttons.keyValueList"
                                @button-clicked="callback">
-            <InjectectableHtmlSvg :svg-html-data="buttonKeyValueList.svgHtmlData"/>
+            <InjectectableHtmlSvg :svg-html-data="buttons.componentBlocks.svgHtmlData"/>
           </LabeledInputSlotted>
-          <LabeledInputSlotted :button-model="buttonColorPalette"
+          <LabeledInputSlotted class="tab" :button-model="buttons.colorPalette"
                                @button-clicked="callback">
-            <InjectectableHtmlSvg :svg-html-data="buttonColorPalette.svgHtmlData"/>
+            <InjectectableHtmlSvg :svg-html-data="buttons.componentBlocks.svgHtmlData"/>
           </LabeledInputSlotted>
-          <!--
-          <label class="tab" title="Components Demo">
-            <input aria-label="Components Demo" name="previewtabs" type="radio" value="Components Demo">
-            <ComponentBlocksSvg/>
-          </label> 
-          <label class="tab" title="Component Variants">
-            <input aria-label="Component Variants" name="previewtabs" type="radio" value="Component Variants">
-            <KeyValueListSvg/>
-          </label> 
-          <label class="tab" title="Color Palette">
-            <input aria-label="Color Palette" name="previewtabs" type="radio" value="Color Palette">
-            <ColorPaletteSvg/>
-          </label>
-          -->
+          
         </TabsContainerSmSlotted>
       </RowBufferedSlotted>
+      
 
       <!-- CONTAINER | PADDED X Y -->
       <PageContainerPaddedSlotted>
@@ -91,13 +68,11 @@ function callback(event) {
 
           <!-- CONTAINER | COLUMN -->
           <ContainerColumnSlotted>
+            
 
             <!-- CARD |  -->
             <CardSlotted>
               
-              <!-- CARD BODY |  -->
-
-              <!-- CARD ELEMENT | HEADER -->
               <template #header>
                 <span class="flex items-center gap-2 font-semibold">
                       <injectectable-html-svg class="size-5 opacity-40"
@@ -115,72 +90,40 @@ function callback(event) {
                   <!-- ELEMENT | BADGE -->
                   <BadgeSlotted>
                     Bags
-                    <InjectectableHtmlSvg class="size-2"
-                                          viewBox="0 0 16 16"
-                                          :fill="SVG_OPTIONS.FILL_TYPES.CURRENT_COLOR"
-                                          stroke-width="0"
-                                          :svg-html-data="SVG_ICONS_HTML.CROSS"/>
                   </BadgeSlotted>
                   
                   <!-- ELEMENT | BADGE -->
                   <BadgeSlotted>
                     Shoes
-                    <InjectectableHtmlSvg class="size-2"
-                                          viewBox="0 0 16 16"
-                                          :fill="SVG_OPTIONS.FILL_TYPES.CURRENT_COLOR"
-                                          stroke-width="0"
-                                          :svg-html-data="SVG_ICONS_HTML.CROSS"/>
                   </BadgeSlotted>
 
                 </div>
+              
+              <ContainerColumnSlotted :gap-size=0>
 
-                <!-- CARD ELEMENT | ROW HOLDER -->
-                <div class="flex flex-col">
-
-                  <!-- ROW | CHECK BOX - LABEL - BADGE -->
-                  <div class="border-b-base-content/5 flex items-center justify-between gap-2 border-b border-dashed py-2">
-                    <label class="flex cursor-pointer items-center gap-2 select-none">
-                      <input checked=""
-                             class="checkbox checkbox-sm"
-                             type="checkbox">
-                      <span>Hoodies</span>
-                    </label>
-                    <span class="badge badge-xs badge-neutral font-mono">25</span>
-                  </div>
-
-                  <div class="border-b-base-content/5 flex items-center justify-between gap-2 border-b border-dashed py-2">
-                    <LabeledCheckbox :checkbox-model="checkboxModel" @checkboxChanged="checkboxCallback"/>
-                    <span class="badge badge-xs badge-neutral font-mono">25</span>
-                  </div>
-
-                  <div class="border-b-base-content/5 flex items-center justify-between gap-2 border-b border-dashed py-2">
-                    <label class="flex cursor-pointer items-center gap-2 select-none">
-                      <input checked=""
-                             class="checkbox checkbox-sm"
-                             type="checkbox">
-                      <span>Bags</span>
-                    </label>
-                    <span class="badge badge-xs badge-neutral font-mono">3</span>
-                  </div>
-                  <div class="border-b-base-content/5 flex items-center justify-between gap-2 border-b border-dashed py-2">
-                    <label class="flex cursor-pointer items-center gap-2 select-none">
-                      <input
-                          class="checkbox checkbox-sm"
-                          type="checkbox">
-                      <span>Shoes</span>
-                    </label>
-                    <span class="badge badge-xs badge-warning font-mono">0</span>
-                  </div>
-                  <div class="border-b-base-content/5 flex items-center justify-between gap-2 border-b border-dashed py-2">
-                    <label class="flex cursor-pointer items-center gap-2 select-none">
-                      <input
-                          class="checkbox checkbox-sm"
-                          type="checkbox">
-                      <span>Accessories</span>
-                    </label>
-                    <span class="badge badge-xs badge-neutral font-mono">4</span>
-                  </div>
+                <div class="border-b-base-content/5 flex items-center justify-between gap-2 border-b border-dashed py-2">
+                  <LabeledCheckbox :checkbox-model="checkboxes.checkboxModel" @checkboxChanged="checkboxCallback"/>
+                  <span class="badge badge-xs badge-neutral font-mono">25</span>
                 </div>
+
+                <div class="border-b-base-content/5 flex items-center justify-between gap-2 border-b border-dashed py-2">
+                  <LabeledCheckbox :checkbox-model="checkboxes.fighters" @checkboxChanged="checkboxCallback"/>
+                  <span class="badge badge-xs badge-neutral font-mono">25</span>
+                </div>
+
+                <div class="border-b-base-content/5 flex items-center justify-between gap-2 border-b border-dashed py-2">
+                  <LabeledCheckbox :checkbox-model="checkboxes.frigates" @checkboxChanged="checkboxCallback"/>
+                  <span class="badge badge-xs badge-neutral font-mono">25</span>
+                </div>
+
+                <div class="border-b-base-content/5 flex items-center justify-between gap-2 border-b border-dashed py-2">
+                  <LabeledCheckbox :checkbox-model="checkboxes.tanks" @checkboxChanged="checkboxCallback"/>
+                  <span class="badge badge-xs badge-neutral font-mono">25</span>
+                </div>
+                
+              </ContainerColumnSlotted>
+
+              
 
               <!-- CARD ELEMENT | FOOTER -->
               <template #footer>

@@ -1,6 +1,7 @@
 ﻿export const INPUT_TYPES = Object.freeze({
     RADIO: 'radio',
     CHECKBOX: 'checkbox',
+    BUTTON: 'button',
 })
 
 export const SVG_OPTIONS = Object.freeze({
@@ -31,8 +32,6 @@ export const SVG_OPTIONS = Object.freeze({
         },
     }
 )
-
-
 
 
 
@@ -125,6 +124,18 @@ export const slotTypes = {
     COLUMN_ONE: 'column-one',
     COLUMN_TWO: 'column-two',
     COLUMN_THREE: 'column-three',
+    NAV_BAR_LEFT: 'nav-bar-left',
+    NAV_BAR_RIGHT: 'nav-bar-right',
+    NAV_BAR_CENTER: 'nav-bar-center',
+    NAV_BAR_DROPDOWN: 'nav-bar-dropdown',
+}
+
+export const APP_ROUTES = {
+    HOME: '/',
+    DEMO_COMPOSITE_VIEW: '/demoCompositeView',
+    EXAMPLE_CONTAINER: '/exampleContainer',
+    CATEGORY_EDITOR_VIEW: '/categoryEditorView',
+    RESPONSIVE_COLUMN_VIEW: '/responsiveColumnView',
 }
 
 export const aliases = Object.freeze({

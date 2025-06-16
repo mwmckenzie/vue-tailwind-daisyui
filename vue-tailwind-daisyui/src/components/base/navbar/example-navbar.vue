@@ -1,20 +1,19 @@
 ﻿<script setup>
 
+import {APP_ROUTES, slotTypes} from "@/js/constants.js";
+
 const props = defineProps({
-  msg: String,
+  title: String,
 });
 
 </script>
 
-<script>
-export default {
-  name: "navbar"
-}
-</script>
 
 <template>
+  <div class="bg-base-100/90 text-base-content sticky top-0 z-30 flex h-16 w-full [transform:translate3d(0,0,0)] justify-center backdrop-blur transition-shadow duration-100 print:hidden">
   <div class="navbar bg-base-100 shadow-sm">
     <div class="navbar-start">
+      <slot :name="slotTypes.NAV_BAR_LEFT"/>
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
@@ -22,16 +21,19 @@ export default {
         <ul
             tabindex="0"
             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-          <li><RouterLink to="/">Go to Home</RouterLink></li>
-          <li><RouterLink to="/about">Category Editor</RouterLink></li>
-          <li><RouterLink to="/responsiveColumnView">Responsive Columns</RouterLink></li>
+          <li><RouterLink :to="APP_ROUTES.HOME">Extracted Components</RouterLink></li>
+          <li><RouterLink :to="APP_ROUTES.EXAMPLE_CONTAINER">Components to Extract</RouterLink></li>
+          <li><RouterLink :to="APP_ROUTES.CATEGORY_EDITOR_VIEW">Category Editor</RouterLink></li>
+          <li><RouterLink :to="APP_ROUTES.RESPONSIVE_COLUMN_VIEW">Responsive Columns</RouterLink></li>
         </ul>
       </div>
     </div>
     <div class="navbar-center">
-      <a class="btn btn-ghost text-xl">daisyUI</a>
+      <slot :name="slotTypes.NAV_BAR_CENTER"/>
+      <a class="btn btn-ghost text-xl">{{ title }}</a>
     </div>
-    <div class="navbar-end">
+    <div class="navbar-end space-x-0.5">
+      <slot :name="slotTypes.NAV_BAR_RIGHT"/>
       <button class="btn btn-ghost btn-circle">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
       </button>
@@ -42,6 +44,7 @@ export default {
         </div>
       </button>
     </div>
+  </div>
   </div>
 </template>
 

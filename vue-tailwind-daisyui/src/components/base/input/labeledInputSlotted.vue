@@ -20,12 +20,12 @@ function buttonClick(buttonModel) {
 
 
 <template>
-  <label class="tab"
+  <label class="btn"
          :title="buttonModel.label">
     <input :aria-label="buttonModel.label"
            :name="buttonModel.groupName"
            :type="buttonModel.inputType"
-           :value="buttonModel.name"
+           :value="buttonModel.label"
            @click="buttonClick(buttonModel)">
     <slot/>
   </label>
