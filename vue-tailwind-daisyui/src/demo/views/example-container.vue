@@ -13,9 +13,9 @@ import PageBkgdTransitionSlotted from "@/components/base/container/pageBkgdTrans
 import PageContainerPaddedSlotted from "@/components/base/container/pageContainerPaddedSlotted.vue";
 import LabeledCheckbox from "@/components/base/input/labeledCheckbox.vue";
 
-import {INPUT_TYPES, slotTypes, SVG_ICONS_HTML, SVG_OPTIONS} from "../../js/constants.js";
-import {ButtonModel, CheckboxModel} from "../../js/models.js";
+import {INPUT_TYPES, slotTypes, SVG_ICONS_HTML, SVG_OPTIONS, svgs} from "@/js/constants.js";
 import {buttons, checkboxes} from "@/demo/js/constants.js";
+import SvgSelectable from "@/components/svgs/svgSelectable.vue";
 
 
 const props = defineProps({
@@ -37,7 +37,6 @@ function callback(event) {
 <template>
 
   
-
     <PageBkgdTransitionSlotted>
 
       <RowBufferedSlotted>
@@ -45,7 +44,8 @@ function callback(event) {
         <TabsContainerSmSlotted>
           <LabeledInputSlotted class="tab" :button-model="buttons.componentBlocks"
                                @button-clicked="callback">
-            <InjectectableHtmlSvg :svg-html-data="buttons.componentBlocks.svgHtmlData"/>
+            <SvgSelectable :svg-model="svgs.COMPONENT_BLOCKS"/>
+<!--            <InjectectableHtmlSvg :svg-html-data="buttons.componentBlocks.svgHtmlData"/>-->
           </LabeledInputSlotted>
           <LabeledInputSlotted class="tab" :button-model="buttons.keyValueList"
                                @button-clicked="callback">

@@ -1,6 +1,23 @@
 import {ButtonModel, CheckboxModel} from "@/js/models.js";
 import {INPUT_TYPES, SVG_ICONS_HTML} from "@/js/constants.js";
 
+//region String Constants
+
+export const APP_NAME = 'Vue App Title';
+export const APP_VERSION = '1.0.0';
+export const APP_DESCRIPTION = 'A Vue 3 Component & UI library';
+export const APP_AUTHOR = '<NAME>';
+export const APP_AUTHOR_URL = 'https://github.com/mwmckenzie';
+export const APP_GITHUB_URL = 'https://github.com/mwmckenzie/vue-tailwind-daisyui';
+export const APP_LICENSE = 'MIT';
+export const APP_LICENSE_URL = 'https://github.com/mwmckenzie/vue-tailwind-daisyui/blob/master/LICENSE';
+export const APP_WEBSITE = 'https://github.com/mwmckenzie/vue-tailwind-daisyui';
+
+//endregion
+
+
+//region Input Models
+
 export const buttons = {
     componentBlocks: new ButtonModel("component-blocks", "previewtabs", "Component Blocks",
         SVG_ICONS_HTML.COMPONENT_BLOCKS, INPUT_TYPES.RADIO),
@@ -18,3 +35,5 @@ export const checkboxes = {
     fighters: new CheckboxModel("fighters", "composite-1", "Fighters"),
     frigates: new CheckboxModel("frigates", "composite-1", "Frigates"),
 }
+
+//endregion

@@ -1,6 +1,6 @@
-﻿import { ref } from "vue";
-import { useApiFetch } from "./useApiFetch";
-import { apiClients } from "@/demo/api/clients";
+﻿import {ref} from "vue";
+import {useApiFetch} from "./useApiFetch";
+import {apiClients} from "@/demo/api/clients";
 
 /**
  * Custom hook for managing category data including fetching, creating, updating, and deleting categories.
@@ -18,13 +18,18 @@ export function useCategories() {
     // A dummy ref to trigger the initial fetch
     const triggerRef = ref(true);
 
-    const { data: categories, loading, error, 
-        refetch } = useApiFetch({
-        sourceRef: triggerRef,
-        apiFn: () => apiClients.getCategories(),
-        immediate: true,
-        debounceMs: 0,
-    });
+    const {
+        data: categories,
+        loading,
+        error,
+        refetch
+    } =
+        useApiFetch({
+            sourceRef: triggerRef,
+            apiFn: () => apiClients.getCategories(),
+            immediate: true,
+            debounceMs: 0,
+        });
 
     /**
      * Asynchronous function to create a new category by sending the provided data to the API.

@@ -1,38 +1,67 @@
-﻿export const INPUT_TYPES = Object.freeze({
+﻿import {ButtonModel, SvgModel} from "@/js/models.js";
+
+
+
+
+//region String Constants
+
+export const APP_NAME = 'Vue App Title';
+export const APP_VERSION = '1.0.0';
+export const APP_DESCRIPTION = 'A Vue 3 Component & UI library';
+export const APP_AUTHOR = '<NAME>';
+export const APP_AUTHOR_URL = 'https://github.com/mwmckenzie';
+export const APP_GITHUB_URL = 'https://github.com/mwmckenzie/vue-tailwind-daisyui';
+export const APP_LICENSE = 'MIT';
+export const APP_LICENSE_URL = 'https://github.com/mwmckenzie/vue-tailwind-daisyui/blob/master/LICENSE';
+export const APP_WEBSITE = 'https://github.com/mwmckenzie/vue-tailwind-daisyui';
+
+
+export const APP_STORES = Object.freeze({
+    CONFIG_STORE: 'appConfigStore',
+})
+
+export const LOCAL_STORAGE_KEYS = Object.freeze({
+    APP_THEME: 'app_theme',
+})
+
+export const INPUT_TYPES = Object.freeze({
     RADIO: 'radio',
     CHECKBOX: 'checkbox',
     BUTTON: 'button',
 })
 
 export const SVG_OPTIONS = Object.freeze({
-        FILL_TYPES: {
-            NONE: "none",
-            CURRENT_COLOR: "currentColor",
-        },
-        STROKE_TYPES: {
-            NONE: "none",
-            CURRENT_COLOR: "currentColor",
-        },
-        STROKE_LINEJOIN: {
-            NONE: "none",
-            ROUND: "round",
-            BEVEL: "bevel",
-            MITER: "miter",
-        },
-        STROKE_LINECAP: {
-            NONE: "none",
-            ROUND: "round",
-            SQUARE: "square",
-        },
-        ICON_TYPES: {
-            NONE: "none",
-            COLOR_PALETTE: "ColorPaletteSvg",
-            COMPONENT_BLOCKS: "ComponentBlocksSvg",
-            KEY_VALUE_LIST: "KeyValueListSvg"
-        },
-    }
-)
-
+    FILL_TYPES: {
+        NONE: "none",
+        CURRENT_COLOR: "currentColor",
+    },
+    STROKE_TYPES: {
+        NONE: "none",
+        CURRENT_COLOR: "currentColor",
+    },
+    STROKE_LINEJOIN: {
+        NONE: "none",
+        ROUND: "round",
+        BEVEL: "bevel",
+        MITER: "miter",
+        INHERIT: "inherit",
+    },
+    STROKE_LINECAP: {
+        NONE: "none",
+        ROUND: "round",
+        SQUARE: "square",
+        BUTT: "butt",
+        INHERIT: "inherit",
+    },
+    ICON_TYPES: {
+        NONE: "none",
+        COLOR_PALETTE: "ColorPaletteSvg",
+        COMPONENT_BLOCKS: "ComponentBlocksSvg",
+        KEY_VALUE_LIST: "KeyValueListSvg",
+        PIE_CHART: "PieChartSvg",
+        CROSS: "CrossSvg",
+    },
+})
 
 
 
@@ -137,6 +166,38 @@ export const APP_ROUTES = {
     CATEGORY_EDITOR_VIEW: '/categoryEditorView',
     RESPONSIVE_COLUMN_VIEW: '/responsiveColumnView',
 }
+//endregion
+
+export const buttons = Object.freeze({
+    cycleTheme: new ButtonModel("cycle-theme", "cycle-theme", "Cycle Theme"),
+})
+
+export const svgs = Object.freeze({
+    NONE: new SvgModel({
+        iconType: SVG_OPTIONS.ICON_TYPES.NONE,
+        size: "4"
+    } ),
+    COLOR_PALETTE: new SvgModel({
+        iconType: SVG_OPTIONS.ICON_TYPES.COLOR_PALETTE,
+        size: "4"
+    } ),
+    COMPONENT_BLOCKS: new SvgModel({
+        iconType: SVG_OPTIONS.ICON_TYPES.COMPONENT_BLOCKS,
+        size: "4"
+    } ),
+    KEY_VALUE_LIST: new SvgModel({
+        iconType: SVG_OPTIONS.ICON_TYPES.KEY_VALUE_LIST,
+        size: "4"
+    }),
+    PIE_CHART: new SvgModel({
+        iconType: SVG_OPTIONS.ICON_TYPES.PIE_CHART,
+        size: "4"
+    }),
+    CROSS: new SvgModel({
+        iconType: SVG_OPTIONS.ICON_TYPES.CROSS
+    }),
+})
+
 
 export const aliases = Object.freeze({
     "alert": [

@@ -30,9 +30,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <svg class="size-4"
-       xmlns="http://www.w3.org/2000/svg"
-       viewBox="0 0 24 24">
+  <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <g :stroke-linejoin="strokeLinejoin"
        :stroke-linecap="strokeLinecap"
        :stroke-width="strokeWidth"
